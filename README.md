@@ -11,4 +11,4 @@
 
   获取所有英雄的信息
   
-![英雄信息](https://github.com/CyclingPeach/OWN_Honor_of_Kings/blob/main/%E7%8E%8B%E8%80%85.png)
+![采集英雄信息](https://github.com/CyclingPeach/OWN---Honor_of_Kings/blob/main/%E9%87%87%E9%9B%86%E5%86%85%E5%AE%B9.png)
