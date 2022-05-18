@@ -10,6 +10,8 @@
   **网站**：王者荣耀官网 - 游戏资料 - 英雄资料
   
   **URL**:  https://pvp.qq.com/web201605/herolist.shtml
+  
+  **json**: https://pvp.qq.com/web201605/js/herolist.json
 
 ### 项目任务
 
