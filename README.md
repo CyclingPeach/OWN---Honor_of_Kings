@@ -1,7 +1,7 @@
 # 王者荣耀英雄信息采集
 >采集方法:
-- 使用selenium自动化测试工具采集
-- 通过 herolist.json 获取所有英雄
+- 使用 `selenium` 自动化测试工具采集
+- 通过 `herolist.json` 获取所有英雄
 
 
 
