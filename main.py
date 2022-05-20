@@ -183,10 +183,10 @@ def get_skills_info(hero_name,cont_xph):
     with open('./王者荣耀英雄技能介绍.csv', 'a', encoding='GBK') as file:
         writer = csv.writer(file)
         writer.writerow(skill_info)
+        
 def save_skills_info():
     if os.path.isfile('./王者荣耀英雄技能介绍.csv') == True:
         os.remove('./王者荣耀英雄技能介绍.csv')
-
     for one_hero_url in get_all_hero_urls(url):
         hero_name = one_hero_url[0]
         cont_xph  = print_one_hero_xpath(one_hero_url[1])
@@ -199,7 +199,7 @@ def save_skills_info():
 
 
 '''
-    王者荣耀英雄铭文搭配推荐
+    英雄铭文搭配推荐
 '''
 def get_mingwen_sugg(hero_name, cont_xph):
     xpath_herd = '/html/body/div[3]/div[2]/div/div[1]/div[3]/div[2]'
@@ -208,10 +208,10 @@ def get_mingwen_sugg(hero_name, cont_xph):
     tips = str(tips)[7:-2]
     mingwen    = cont_xph.xpath(name_xpath)
     mingwen_sugg = [hero_name] + mingwen + [tips]
-    
     with open('./王者荣耀铭文搭配推荐.csv', 'a', encoding='GBK') as file:
         writer = csv.writer(file)
         writer.writerow(mingwen_sugg)
+
 def save_mingwen_sugg():
     if os.path.isfile('./王者荣耀铭文搭配推荐.csv') == True:
         os.remove('./王者荣耀铭文搭配推荐.csv')
@@ -227,7 +227,7 @@ def save_mingwen_sugg():
 
 
 '''
-    王者荣耀英雄技能加点建议
+    英雄技能加点建议
 '''
 def get_skill_plus_sugg(hero_name, cont_xph):
     
@@ -333,14 +333,14 @@ def save_relates_list():
         try:
             get_relates_list(hero_name, one_hero_soup)
         except:
-            print(one_hero_url)  # 实际运行后发现有三个英雄出现错误
+            print(one_hero_url)     # 实际运行后发现有三个英雄出现错误
             pass
         continue
 
 def pretreatment():
     save_hero_info = pd.read_csv('./王者荣耀英雄基本信息.csv',encoding='GBK',names=['英雄名','生成能力','攻击伤害','技能效果','上手难度'])
     # 去空值
-    save_hero_info.dropna(axis=0, inplace=True)  #删除有空值的行，使用参数axis=0
+    save_hero_info.dropna(axis=0, inplace=True)  # 删除有空值的行，使用参数axis = 0
     save_hero_info.index = range(len(save_hero_info))  # 重新设置列索引
     # print(save_hero_info)
 
