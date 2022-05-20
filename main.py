@@ -56,7 +56,7 @@ def print_one_hero_soup(one_hero_url):
 '''
 def print_one_hero_xpath(one_hero_url):
   
-    options = webdriver.ChromeOptions()
+    options = webdriver.ChromeOptions()                     # 操作 Chrome 浏览器
     options.headless = True                                 # 不弹出 Chrome浏览器界面，后台运行
     driver = webdriver.Chrome(chrome_options = options)     # 控制chrome浏览器
     
@@ -67,7 +67,10 @@ def print_one_hero_xpath(one_hero_url):
     
     return cont_xph
 
-'''获取所有英雄的url链接'''
+'''
+    获取所有英雄的url链接
+    注: 可以通过网页 json 文件获取英雄信息, 这样才是正确的方法, 不仅效果好而且速度更快【2022-05-20记, 暂未更新】
+'''
 def get_all_hero_urls(url):
     
     response = requests.get(url)
@@ -79,7 +82,7 @@ def get_all_hero_urls(url):
     data   = soup.select(selector_str + ' > img')
     data2  = soup.select(selector_str)
     
-    hero_name_lists = []    
+    hero_name_lists = [] 
     hero_url_lists = []
     herolist_url_herd = 'https://pvp.qq.com/web201605/'
     
@@ -97,6 +100,16 @@ def get_all_hero_urls(url):
     hero_name_lists.pop(i)
     hero_url_lists.pop(i)
        
+    '''
+        >>> zip([1,2,5],[3,4,6])
+        <zip object at 0x7f9d886b5700>
+    
+        >>> list(zip([1,2,5],[3,4,6]))
+        [(1, 3), (2, 4), (5, 6)]
+        
+        zip()   函数 返回两个list的各元素一一对应组成的多个元组的对象
+        list()  函数 将其转换为 列表
+    '''
     return list(zip(hero_name_lists, hero_url_lists))
 
 
