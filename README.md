@@ -18,5 +18,6 @@
   获取所有英雄的信息
 
 
-<div align=center><img src="https://github.com/CyclingPeach/OWN---Honor_of_Kings/blob/main/%E6%89%80%E6%9C%89%E8%8B%B1%E9%9B%84.png" width=80%></div>
-<div align=center><img src="https://github.com/CyclingPeach/OWN---Honor_of_Kings/blob/main/%E9%87%87%E9%9B%86%E5%86%85%E5%AE%B9.png" width=80%></div>
+<div align=center><img src="../OWN---Honor_of_Kings/image/所有英雄.png.png" width=75%></div>
+
+<div align=center><img src="../OWN---Honor_of_Kings/image/采集内容.png.png" width=75%></div>

@@ -38,6 +38,7 @@ user_agent = [
     "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Avant Browser)"
 ]
 
+
 '''两个不同网页解析方法'''
 def print_one_hero_soup(one_hero_url):
     one_hero_response = requests.get(one_hero_url)
