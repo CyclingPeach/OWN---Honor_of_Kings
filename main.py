@@ -359,7 +359,7 @@ def main():
     save_plus_sugg()    # 王者荣耀英雄技能加点建议
     save_equip_sugg()   # 王者荣耀英雄出装建议
     get_relates_list()  # 王者荣耀英雄关系
-    pretreatment()      # 预处理
+    # pretreatment()      # 预处理
 
 url = 'https://pvp.qq.com/web201605/herolist.shtml'
 main()

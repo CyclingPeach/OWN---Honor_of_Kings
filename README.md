@@ -1,13 +1,16 @@
 # 王者荣耀英雄信息采集
 >采集方法:
 
-- 通过 `herolist.json` 获取所有英雄信息
-
+- [ ] 通过 `herolist.json` 获取所有英雄信息
 - `BeautifulSoup + html.parser`
 - `selenium + lxml.etree.HTML`
 
+> 待优化的地方
 
-
+- [ ] 改为通过 `json()` 文件获取 英雄姓名和url等信息
+- [ ] 流程和代码优化
+- [ ] `selenium + Chrome` 改成 `selenium + PhantomJS`
+- [ ] 多线程
 
 ### 项目背景
 
@@ -21,13 +24,13 @@
 
   获取所有英雄的信息
 
-
 <div align=center><img src="./image/所有英雄.png" width=75%></div>
 
 <div align=center><img src="./image/采集内容.png" width=75%></div>
+
 
 ### 运行方法
 
 直接运行`python main.py`即可
 
->注意：由于采用`selenium`库采集数据，所以在爬取过程中对内存消耗非常大。
+> 注意：由于采用`selenium`库采集数据，所以在爬取过程中对内存消耗非常大。
