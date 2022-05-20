@@ -18,6 +18,6 @@
   获取所有英雄的信息
 
 
-<div align=center><img src="../OWN---Honor_of_Kings/image/所有英雄.png.png" width=75%></div>
+<div align=center><img src="./image/所有英雄.png" width=75%></div>
 
-<div align=center><img src="../OWN---Honor_of_Kings/image/采集内容.png.png" width=75%></div>
+<div align=center><img src="./image/采集内容.png" width=75%></div>
