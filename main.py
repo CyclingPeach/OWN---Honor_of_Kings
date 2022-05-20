@@ -9,7 +9,6 @@ import csv
 import time
 import requests
 from bs4 import BeautifulSoup
-from lxml import html
 import lxml.etree
 from selenium import webdriver
 import pandas as pd
@@ -38,27 +37,33 @@ user_agent = [
     "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Avant Browser)"
 ]
 
+# url = 'https://pvp.qq.com/web201605/herolist.shtml'
 
-'''两个不同网页解析方法'''
+'''两种不同的网页解析方法'''
+'''
+    BeautifulSoup + html.parser 解析网页    使用 selector 获取网页数据
+'''
 def print_one_hero_soup(one_hero_url):
     one_hero_response = requests.get(one_hero_url)
     one_hero_response.encoding = one_hero_response.apparent_encoding    # 获取网页真实编码    https://www.cnblogs.com/bw13/p/6549248.html
     one_hero_html = one_hero_response.text
-    one_hero_soup = BeautifulSoup(one_hero_html, 'html.parser')    # BeautifulSoup 解析网页，获取源代码
+    one_hero_soup = BeautifulSoup(one_hero_html, 'html.parser')    # BeautifulSoup + html.parser解析器
     
     return one_hero_soup
 
-
+'''
+    selenium + lxml             解析网页    使用 xpath 获取网页源代码某处具体数据
+'''
 def print_one_hero_xpath(one_hero_url):
-    
+  
     options = webdriver.ChromeOptions()
-    options.headless = True    # 不弹出 Chrome浏览器界面，后台运行
-    driver = webdriver.Chrome(chrome_options = options)    # 控制chrome浏览器
+    options.headless = True                                 # 不弹出 Chrome浏览器界面，后台运行
+    driver = webdriver.Chrome(chrome_options = options)     # 控制chrome浏览器
     
     driver.get(one_hero_url)
     time.sleep(2)
-    content = driver.page_source    # selenium 获取网页源代码
-    cont_xph = lxml.etree.HTML(content)    # 解析 content
+    content = driver.page_source            # selenium 获取网页源代码
+    cont_xph = lxml.etree.HTML(content)     # 解析 content
     
     return cont_xph
 
@@ -68,7 +73,7 @@ def get_all_hero_urls(url):
     response = requests.get(url)
     response.encoding = response.apparent_encoding    # 获取网页真实编码'GB2312'
     html = response.text
-    soup = BeautifulSoup(html)
+    soup = BeautifulSoup(html, 'lxml')
     
     selector_str = 'body > div.wrapper > div.zkcontent > div.zk-con-box > div.herolist-box > div.herolist-content > ul.herolist.clearfix > li > a'
     data   = soup.select(selector_str + ' > img')
@@ -96,7 +101,7 @@ def get_all_hero_urls(url):
 
 
 '''
-    王者荣耀英雄基本信息
+    英雄基本信息
 '''
 def get_hero_info(one_hero_soup):
     head_select = 'body > div.wrapper > div.zk-con1.zk-con > div > div > div.cover'
@@ -124,7 +129,7 @@ def save_hero_info():
 
 
 '''
-    王者荣耀英雄皮肤
+    英雄皮肤
 '''
 def get_hero_clo(hero_name, one_hero_soup):
     clo_selector = 'body > div.wrapper > div.zk-con1.zk-con > div > div > div.pic-pf > ul'
@@ -153,7 +158,7 @@ def save_get_hero_clo():
 
 
 '''
-    王者荣耀英雄技能介绍
+    英雄技能介绍
 '''
 def get_skills_info(hero_name,cont_xph):   
     head_xpath = '/html/body/div[3]/div[2]/div/div[1]/div[2]/div/div'
