@@ -333,7 +333,7 @@ def save_relates_list():
         try:
             get_relates_list(hero_name, one_hero_soup)
         except:
-            print(one_hero_url)     # 实际运行后发现有三个英雄出现错误
+            # print(one_hero_url)     # 实际运行后发现有三个英雄出现错误
             pass
         continue
 
