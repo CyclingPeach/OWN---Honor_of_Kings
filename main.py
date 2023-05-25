@@ -129,8 +129,8 @@ def get_hero_info(one_hero_soup):
         writer = csv.writer(file)
         writer.writerow(basic_info)
 def save_hero_info():
-    if os.path.isfile('./王者荣耀英雄皮肤.csv') == True:
-        os.remove('./王者荣耀英雄皮肤.csv')
+    if os.path.isfile('./王者荣耀英雄基本信息.csv') == True:
+        os.remove('./王者荣耀英雄基本信息.csv')
 
     for one_hero_url in get_all_hero_urls(url):
         one_hero_soup = print_one_hero_soup(one_hero_url[1])
