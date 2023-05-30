@@ -12,6 +12,7 @@ from bs4 import BeautifulSoup
 import lxml.etree
 from selenium import webdriver
 import pandas as pd
+import json
 
 
 user_agent = [
@@ -71,8 +72,8 @@ def print_one_hero_xpath(one_hero_url):
     获取所有英雄的url链接
     注: 可以通过网页 json 文件获取英雄信息, 这样才是正确的方法, 不仅效果好而且速度更快【2022-05-20记, 暂未更新】
 '''
+
 def get_all_hero_urls(url):
-    
     response = requests.get(url)
     response.encoding = response.apparent_encoding    # 获取网页真实编码'GB2312'
     html = response.text
